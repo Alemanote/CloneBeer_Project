@@ -26,14 +26,16 @@
 .navbar-minimal>.navbar-toggler {
     position: relative;
     min-height: 60px;
-    border-bottom: 1px solid rgb(255, 255, 255);
+    /*border-bottom: 1px solid rgb(255, 255, 255);*/
     z-index: 100;
     cursor: pointer;
 }
 
 .navbar-minimal.open>.navbar-toggler,
 .navbar-minimal>.navbar-toggler:hover {
-    background-color: #0277bd ;
+    
+    background-color: #ee6e73;
+    background-color: #039be5;
 }
 
 .navbar-minimal>.navbar-toggler>span {
@@ -96,6 +98,7 @@
 
 .navbar-minimal>.navbar-menu>li>a:hover {
     background-color: #1de9b6;
+    background-color: #8CCDC6;
 }
 
 .navbar-minimal>.navbar-menu>li>a>.glyphicon {

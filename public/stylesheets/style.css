@@ -1,6 +1,65 @@
-/* Creates a vertical nav starting at 768px (sm) */
-@media (min-width: 768px) {
-    .bootstrap-vertical-nav .collapse {
-        display: block;
-    }
+.breweries-list {
+    width: 226px;
+    height: 100%;
+    background-color: #ee6e73;
+    background-color: #78909c;
+    position: absolute;
+    margin-left: 580px;
 }
+
+.breweries-list-title {
+    color: white;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.brewery-item {
+    text-align: center;
+}
+
+.move-list-icon {
+    position: absolute;
+    top: 45%;
+    margin-left: 546px;
+    color: #78909c;
+    font-size: 25px;
+    transition: all 2s ease;
+}
+
+.border-0,
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+    border: none;
+}
+
+.breweries-list {
+    transition: all 2s ease;
+    /* Don't forget the vendor specific pre-fixes! */
+}
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+input:checked + .move-list-icon {
+    position: absolute;
+    margin-left: 60px;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+input:checked + .move-list-icon + .breweries-list {
+    position: absolute;
+    margin-left: 85px;
+}
+
+/*.move-list-icon:after {
+    position: absolute;
+    margin-left: 75px;
+}*/
