@@ -1,28 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const { ensureLoggedIn, ensureLoggedOut } = require('connect-ensure-login');
+const {
+    ensureLoggedIn,
+    ensureLoggedOut
+} = require('connect-ensure-login');
 
-/* GET signup & login page */
-// router.get('/login', /* ensureLoggedOut(),*/ (req, res) => {
-//     res.render('auth/login');
-// });
+router.post('/login', ensureLoggedOut(), passport.authenticate('local-login', {}), (req, res) => {
+    res.status(204).send()
+});
 
-router.post('/login', ensureLoggedOut(), passport.authenticate('local-login', {
-  successRedirect : '/',
-  failureRedirect : '/login'
-}));
+router.post('/signup', ensureLoggedOut(), passport.authenticate('local-signup', {}), (req, res) => {
+    res.status(204).send()
+});
 
-// router.get('/signup', ensureLoggedOut(), (req, res) => {
-//     res.render('auth/signup');
-// });
-
-router.post('/signup', ensureLoggedOut(), passport.authenticate('local-signup', {
-  successRedirect : '/',
-  failureRedirect : '/signup'
-}));
-
-router.get('/logout', ensureLoggedIn('/login'), (req, res) => {
+router.get('/logout', ensureLoggedIn(), (req, res) => {
     req.logout();
     res.redirect('/');
 });

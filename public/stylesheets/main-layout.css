@@ -1,3 +1,7 @@
+body {
+    font-family: roboto;
+}
+
 .animate {
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -33,7 +37,6 @@
 
 .navbar-minimal.open>.navbar-toggler,
 .navbar-minimal>.navbar-toggler:hover {
-    
     background-color: #ee6e73;
     background-color: #039be5;
 }
@@ -200,4 +203,20 @@
         left: 60px;
         opacity: 1;
     }
+}
+
+.error-message-login, .error-message-signup {
+    background: #F02B63;
+    box-sizing: border-box;
+    color: #fff;
+    margin: 20px auto;
+    height: 40px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+.display-active {
+    visibility: visible;
 }

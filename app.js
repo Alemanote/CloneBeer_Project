@@ -68,28 +68,26 @@ passport.use('local-signup', new LocalStrategy({
   (req, username, password, next) => {
     // To avoid race conditions
     process.nextTick(() => {
+      console.log('estoy en passport');
       User.findOne({
         'username': username
       }, (err, user) => {
         if (err) {
           return next(err);
         }
-
         if (user) {
           return next(null, false);
         } else {
           // Destructure the body
           const {
+            name,
             username,
-            email,
-            description,
             password
           } = req.body;
           const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
           const newUser = new User({
+            name,
             username,
-            email,
-            description,
             password: hashPass
           });
 
@@ -122,14 +120,19 @@ passport.use('local-login', new LocalStrategy((username, password, next) => {
         message: "Incorrect password"
       });
     }
-
     return next(null, user);
   });
 }));
-
+app.use((req, res, next) => {
+  console.log("JEY")
+  next()
+})
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use((req, res, next) => {
+  console.log("JEY")
+  next()
+})
 app.use((req, res, next) => {
   if (typeof (req.user) !== "undefined") {
     res.locals.userSignedIn = true;
@@ -138,7 +141,6 @@ app.use((req, res, next) => {
   }
   next();
 });
-
 
 app.use('/', index);
 app.use('/users', users);

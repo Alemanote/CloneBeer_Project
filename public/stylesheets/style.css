@@ -44,7 +44,7 @@ label {
     cursor: pointer;
 }
 
-input:checked + .move-list-icon {
+input:checked+.move-list-icon {
     position: absolute;
     margin-left: 60px;
     -webkit-transform: rotate(-180deg);
@@ -54,12 +54,17 @@ input:checked + .move-list-icon {
     transform: rotate(-180deg);
 }
 
-input:checked + .move-list-icon + .breweries-list {
+input:checked+.move-list-icon+.breweries-list {
     position: absolute;
     margin-left: 85px;
 }
 
-/*.move-list-icon:after {
-    position: absolute;
-    margin-left: 75px;
-}*/
+.brewery-name {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.brewery-website {
+    padding-right: 6px;
+    vertical-align: middle;
+}
