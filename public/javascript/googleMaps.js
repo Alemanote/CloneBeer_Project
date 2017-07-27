@@ -1,7 +1,7 @@
 const directionsService = new google.maps.DirectionsService;
 const directionsDisplay = new google.maps.DirectionsRenderer;
-
-
+const breweryKey = "132cbe32930489cc007fb08c105455a5";
+const radius = 100;
 
 function startMap() {
 
@@ -104,10 +104,13 @@ function startMap() {
                 title: "You are here"
             });
 
+            getBreweriesByLocation(user_location.lat, user_location.lng, radius, breweryKey);
+
         }, function () {
             console.log('Error in the geolocation service.');
         });
     } else {
+        getBreweriesByLocation(location[0][0],location[0][1], radius, breweryKey);
         console.log('Browser does not support geolocation.');
     }
 
@@ -131,20 +134,21 @@ startMap();
 
 /////LLAMADA A AJAX
 
-// function getBreweriesByLocation(lat, lng, radius, key) {
+function getBreweriesByLocation(lat, lng, radius, key) {
 
-//   $.ajax({
-//     url: "hhttp://api.brewerydb.com/v2/search/geo/point/?lat="+lat+"&lng="+lng+"&radius="+radius+"&key="+key,
-//     method: "GET",
-//     success: function (response) {
-//       console.log(response);
-//     },
-//     error: function (err) {
-//       console.log(err);
-//     },
-//   })
-// }
+  $.ajax({
+    url: "/brewery-api/breweries-by-location/?lat="+lat+"&lng="+lng+"&radius="+radius+"&key="+key,
+    method: "GET",
+    success: showBreweries,
+    error: function (err) {
+      console.log(err);
+    },
+  })
+}
 
-// $("WHATDEFAK").on('click', function(){
-//   getBreweriesByLocation(,,,,,);
-// })
+
+function showBreweries (breweriesList) {
+    console.log(JSON.parse(breweriesList).data);
+
+}
+
