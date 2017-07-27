@@ -131,20 +131,20 @@ startMap();
 
 /////LLAMADA A AJAX
 
-function getBreweriesByLocation(lat, lng, radius, key) {
+// function getBreweriesByLocation(lat, lng, radius, key) {
 
-  $.ajax({
-    url: "hhttp://api.brewerydb.com/v2/search/geo/point/?lat="+lat+"&lng="+lng+"&radius="+radius+"&key="+key,
-    method: "GET",
-    success: function (response) {
-      console.log(response);
-    },
-    error: function (err) {
-      console.log(err);
-    },
-  })
-}
+//   $.ajax({
+//     url: "hhttp://api.brewerydb.com/v2/search/geo/point/?lat="+lat+"&lng="+lng+"&radius="+radius+"&key="+key,
+//     method: "GET",
+//     success: function (response) {
+//       console.log(response);
+//     },
+//     error: function (err) {
+//       console.log(err);
+//     },
+//   })
+// }
 
-$("WHATDEFAK").on('click', function(){
-  getBreweriesByLocation(,,,,,);
-})
+// $("WHATDEFAK").on('click', function(){
+//   getBreweriesByLocation(,,,,,);
+// })

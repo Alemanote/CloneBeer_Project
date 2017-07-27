@@ -1,8 +1,9 @@
-.maps {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
+#map {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 820px;
+  height: 100%;
 }
 
 .breweries-list {
