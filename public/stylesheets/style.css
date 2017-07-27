@@ -1,6 +1,246 @@
-/* Creates a vertical nav starting at 768px (sm) */
-@media (min-width: 768px) {
-    .bootstrap-vertical-nav .collapse {
-        display: block;
-    }
+.maps {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+}
+
+.breweries-list {
+    width: 246px;
+    height: 100%;
+    background-color: #78909c;
+    background-color: white;
+    position: absolute;
+    margin-left: 580px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.beers-list-section {
+    width: 100%;
+    height: 100%;
+    /*position: absolute;*/
+    padding-left: 840px;
+}
+
+.breweries-list-title {
+    color: #ff5252;
+    opacity: 0.9;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.btn-beers {
+    color: #ff5252;
+    position: absolute;
+    right: 11px;
+    padding-top: 4px;
+}
+
+.brewery-item {
+    display: inline-block;
+}
+
+.move-list-icon {
+    position: absolute;
+    top: 45%;
+    margin-left: 546px;
+    color: #ff5252;
+    opacity: 0.8;
+    font-size: 25px;
+    transition: all 2s ease;
+}
+
+.border-0,
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+    border: none;
+    color: rgba(0, 0, 0, 0.54);
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.panel-default>.panel-heading {
+    background-color: white;
+    border-top: 0.8px solid rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
+    background-color: white;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 15px;
+    text-align: left;
+}
+
+.breweries-list {
+    transition: all 2s ease;
+    /* Don't forget the vendor specific pre-fixes! */
+}
+
+input {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+input:checked+.move-list-icon {
+    position: absolute;
+    margin-left: 60px;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+
+input:checked+.move-list-icon+.breweries-list {
+    position: absolute;
+    margin-left: 85px;
+}
+
+.brewery-name {
+    color: rgba(0, 0, 0, 0.87)!important;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    margin-left: 1px;
+}
+
+.brewery-website {
+    padding-right: 6px;
+    vertical-align: middle;
+}
+
+.profile-card {
+    display: inline-block;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    margin: 10px 10px 10px 10px;
+    width: 270px;
+    border: 0.8px solid rgba(0, 0, 0, 0.54);
+}
+
+.header-card {
+    border-radius: 2px;
+    background-color: #292F36;
+    color: white;
+    padding-top: 20px;
+    height: 120px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    position: absolute;
+    top: -65px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 1;
+    max-width: 100px;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.profile-info {
+    color: rgba(0, 0, 0, 0.54);
+    padding: 10px 25px 25px 25px;
+    position: relative;
+}
+
+.profile-info h2 {
+    color: #00bfa5;
+    letter-spacing: 2px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+.profile-info span {
+    display: block;
+    font-size: 14px;
+    color: #ff5252;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.profile-info a {
+    color: #4CB493;
+}
+
+
+/*.profile-info i {
+    padding: 15px 35px 0px 35px;
+}*/
+
+.profile-card:hover .profile-pic {
+    transform: scale(1.1);
+}
+
+.profile-card:hover .profile-info hr {
+    opacity: 1;
+}
+
+.rate-star {
+    display: inline-block;
+    font-size: 24px;
+    color: #00bfa5;
+    width: 21px;
+    margin-top: 15px;
+}
+
+.info-icon {
+    color: #ff5252;
+    vertical-align: middle;
+}
+
+.recipe-icon {
+    color: #ff5252;
+    font-size: 18px;
+    vertical-align: top;
+}
+
+
+/* Underline From Center */
+
+.hvr-underline-from-center {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+}
+
+.hvr-underline-from-center:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 52%;
+    right: 52%;
+    bottom: 0;
+    background: #FFFFFF;
+    border-radius: 50%;
+    height: 3px;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.profile-card:hover .hvr-underline-from-center:before,
+.profile-card:focus .hvr-underline-from-center:before,
+.profile-card:active .hvr-underline-from-center:before {
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.54);
 }
