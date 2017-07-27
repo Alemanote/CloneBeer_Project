@@ -3,13 +3,17 @@
 
 <head>
   <title>
+  
   </title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <link rel="stylesheet" href="/stylesheets/nav-bar.css" />
+  <link rel="stylesheet" href="/stylesheets/main-layout.css" />
   <link rel="stylesheet" href="/stylesheets/googleMapsStyle.css" />
 </head>
 
@@ -44,50 +48,140 @@
           <span class="glyphicon glyphicon-search"></span>
         </a>
       </li>
-      <li>
-        <a href="#blog" class="animate">
+      <% if (!userSignedIn) {%>
+        <li>
+          <a href="#loginModal" data-toggle="modal" data-target="#loginModal" class="animate">
           <span class="desc animate"> Login </span>
           <span class="glyphicon glyphicon-log-in"></span>
         </a>
-      </li>
-      <li>
-        <a href="#blog" class="animate">
+        </li>
+        <% } else { %>
+          <li>
+            <a href="/logout" class="animate">
           <span class="desc animate"> Logout </span>
           <span class="glyphicon glyphicon-log-out"></span>
         </a>
-      </li>
-      <li>
-        <div class="logo">
-          <div class="text-logo">
-            <span class="vertical-text">cloneBeer</span>
-          </div>
-          <img class="rotate-img" src="/images/cloneBeer-icon.png" alt="cloneBeer" height="42" width="42">
-          <span class="vertical-text">=</span>
-          <img class="rotate-img" src="/images/cloneBeer-icon.png" alt="cloneBeer" height="42" width="42">
-        </div>
+          </li>
+          <% } %>
+            <li>
+              <div class="logo">
+                <div class="text-logo">
+                  <span class="vertical-text">cloneBeer</span>
+                </div>
+                <img class="rotate-img" src="/images/cloneBeer-icon.png" alt="cloneBeer" height="42" width="42">
+                <span class="vertical-text">=</span>
+                <img class="rotate-img" src="/images/cloneBeer-icon.png" alt="cloneBeer" height="42" width="42">
+              </div>
     </ul>
   </nav>
-
-  <!--Google Map-->
-
-      <div id="map">
-      </div>
-
-
-
   <%- body %>
+    <!--Modal Login-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="loginModalLabel">Login</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+          <div class="modal-body">
 
-    <!--Google Maps API-->
+            <form class="login-form" method="POST" action="/login">
+
+              <div class="form-group">
+                <label class="control-label" for="username">Email</label>
+                <input name="username" id="username" type="email" maxlength="50" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="password">Password</label>
+                <input name="password" id="password" type="password" maxlength="25" class="form-control" placeholder="" length="40">
+              </div>
+              <div class="error-message-login">
+
+              </div>
+
+              <p class="account-message">
+                Don't have an account? <a href="#signupModal" data-toggle="modal" data-target="#signupModal" data-dismiss="modal">Sign up</a>
+              </p>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--Modal Signup-->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="signupModalLabel">Create account</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+          </div>
+          <div class="modal-body">
+
+            <form class="signup-form" method="POST" action="/signup">
+              <div class="form-group">
+                <label class="control-label" for="name">Your name</label>
+                <input name="name" id="name" type="text" maxlength="50" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="username">Email</label>
+                <input name="username" id="username" type="email" maxlength="50" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="usernameAgain">Email again</label>
+                <input name="usernameAgain" id="usernameAgain" type="email" maxlength="50" class="form-control">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="password">Password</label>
+                <input name="password" id="password" type="password" maxlength="25" class="form-control" placeholder="at least 6 characters"
+                  length="40">
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="passwordAgain">Password again</label>
+                <input name="passwordAgain" id="passwordAgain" type="password" maxlength="25" class="form-control">
+              </div>
+              <div class="error-message-signup">
+
+              </div>
+
+              <p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+              <hr>
+              <p></p>Already have an account? <a href="login">Sign in</a></p>
+              <p><a href="/auth/facebook">Login With Facebook</a></p>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create your account</button>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+     <!--Google Maps API-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAiAmPifRiLMkZyixbAq2uAi1CVqsKWS4"></script>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/92dd93e099.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
-    <script src="/javascript/nav-bar.js"></script>
-   
-    <script src="/javascript/index.js"></script>
-     <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <script src="/javascript/index.js"></script>  
+<!--Poner todo en main-layout y cargarme el index.js-->
+    <script src="/javascript/main-layout.js"></script>
 </body>
 
 </html>
