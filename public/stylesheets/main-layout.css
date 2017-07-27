@@ -39,6 +39,7 @@ body {
 .navbar-minimal>.navbar-toggler:hover {
     background-color: #ee6e73;
     background-color: #039be5;
+    background-color: #292F36;
 }
 
 .navbar-minimal>.navbar-toggler>span {
