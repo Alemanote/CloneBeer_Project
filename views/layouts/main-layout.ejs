@@ -3,6 +3,7 @@
 
 <head>
   <title>
+  
   </title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
   <link rel="stylesheet" href="/stylesheets/main-layout.css" />
+  <link rel="stylesheet" href="/stylesheets/googleMapsStyle.css" />
 </head>
 
 <body>
@@ -42,8 +44,8 @@
       </li>
       <li>
         <a href="#contact-us" class="animate">
-           <span class="desc animate"> Search </span>
-           <span class="glyphicon glyphicon-search"></span>
+          <span class="desc animate"> Search </span>
+          <span class="glyphicon glyphicon-search"></span>
         </a>
       </li>
       <% if (!userSignedIn) {%>
@@ -72,9 +74,7 @@
               </div>
     </ul>
   </nav>
-
   <%- body %>
-
     <!--Modal Login-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -169,6 +169,9 @@
         </div>
       </div>
     </div>
+     <!--Google Maps API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAiAmPifRiLMkZyixbAq2uAi1CVqsKWS4"></script>
+    <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
     <!--Font Awesome-->
     <script src="https://use.fontawesome.com/92dd93e099.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -176,6 +179,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
+    <script src="/javascript/index.js"></script>  
+<!--Poner todo en main-layout y cargarme el index.js-->
     <script src="/javascript/main-layout.js"></script>
 </body>
 
