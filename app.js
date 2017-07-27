@@ -16,7 +16,7 @@ const bcrypt = require('bcrypt');
 const index = require('./routes/index');
 const users = require('./routes/users');
 const authRoutes = require('./routes/authentication');
-
+const apiRoutes = require ('./routes/brewery-API')
 const app = express();
 
 //mongoose conection
@@ -146,6 +146,7 @@ app.use((req, res, next) => {
 app.use('/', index);
 app.use('/users', users);
 app.use('/', authRoutes);
+app.use('/', apiRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
